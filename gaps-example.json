@@ -1,0 +1,337 @@
+{
+  "metadata": {
+    "created": "2026-04-24T12:34:56.789012",
+    "total_gaps": 3,
+    "source": "Peec API Gap Analysis",
+    "description": "Example gap analysis output showing expected format for generate_gap_brief.py"
+  },
+  "gaps": [
+    {
+      "gap_id": 1,
+      "topic": "Kategorie mit hohem Suchvolumen",
+      "urls": [
+        {
+          "url": "https://mediamarkt.de/de/product/sports-tv",
+          "title": "Sportfernseher bei MediaMarkt",
+          "retrieved_in": 156,
+          "citation_count": 42
+        },
+        {
+          "url": "https://www.saturn.de/de/category/fernseher-sport",
+          "title": "Sportfernseher bei Saturn",
+          "retrieved_in": 98,
+          "citation_count": 28
+        },
+        {
+          "url": "https://www.cnet.de/artikel/beste-fernseher-fussball-sport",
+          "title": "Die besten Fernseher für Fußball & Sport",
+          "retrieved_in": 87,
+          "citation_count": 35
+        }
+      ],
+      "search_queries": [
+        "bester Fernseher für Fußball",
+        "120Hz TV Sportübertragung",
+        "Motion Handling TV Empfehlung",
+        "Fernseher für schnelle Bewegungen",
+        "TV Refresh Rate Fußball",
+        "TV Sport Modus Funktion"
+      ],
+      "priority": "🔴 CRITICAL",
+      "impact_score": 85.3,
+      "estimated_visibility_lift": "8-12%",
+      "retrieval_rate": 164,
+      "total_chats": 4579,
+      "citation_rate": 0.52,
+      "own_brand_status": "ABSENT",
+      "own_brand_visibility": "0%",
+      "target_length": "2400-2600 words",
+      "production_hours": "4-5",
+      "primary_keyword": "Sportfernseher",
+      "secondary_keywords": [
+        "Fußball TV",
+        "Motion Handling TV",
+        "120Hz Fernseher"
+      ],
+      "competitors": {
+        "LG": "60%",
+        "Sony": "45%",
+        "Panasonic": "30%"
+      },
+      "faq_questions": [
+        {
+          "question": "Welcher Fernseher ist am besten für Fußball?",
+          "answer": "Für Fußball brauchst du mindestens 120Hz Bildwiederholrate, um schnelle Bewegungen flüssig darzustellen. Premium-Modelle mit Motion-Handling-Technologie bieten hier beste Performance.",
+          "category": "performance"
+        },
+        {
+          "question": "Was ist wichtiger: Refresh Rate oder Response Time?",
+          "answer": "Für Sportinhalte ist die Refresh Rate wichtiger. Sie bestimmt, wie viele Bilder pro Sekunde angezeigt werden. 120Hz ist Standard, 144Hz ist noch besser.",
+          "category": "performance"
+        },
+        {
+          "question": "Kann man einen 60Hz TV für Fußball nutzen?",
+          "answer": "Ja, aber nicht optimal. 120Hz ist deutlich besser, da mehr Zwischenbilder berechnet werden, was schnelle Szenen flüssiger macht.",
+          "category": "specifications"
+        },
+        {
+          "question": "Welche TV-Modelle sind gut für Sport?",
+          "answer": "Die besten Sportfernseher haben 144Hz Bildwiederholrate und exzellentes Motion Handling. Top-Hersteller wie LG und Sony bieten Spitzenmodelle in dieser Kategorie.",
+          "category": "product_recommendation"
+        },
+        {
+          "question": "Wie wichtig ist HDR für Sportübertragungen?",
+          "answer": "HDR ist wichtig für bessere Farbgenauigkeit und Kontrastumfang. Moderne Sportübertragungen nutzen zunehmend HDR.",
+          "category": "specifications"
+        },
+        {
+          "question": "Was kostet ein guter Sportfernseher?",
+          "answer": "Gute 55-Zoll Sportfernseher beginnen bei 800-1000€. Premium-Modelle mit bester Performance kosten 2000-3000€.",
+          "category": "price"
+        },
+        {
+          "question": "Ist OLED besser als QLED für Fußball?",
+          "answer": "OLED hat bessere Schwarzwerte und Kontrastumfang, aber höhere Burn-in-Risiken bei statischen Logos. QLED ist robuster für Live-Sport.",
+          "category": "technology_comparison"
+        },
+        {
+          "question": "Welche Bildrate brauchen Streaming-Dienste für Sport?",
+          "answer": "Streaming-Dienste nutzen oft 30fps oder 60fps. Dein TV sollte mindestens 120Hz können, um dazwischenliegende Frames zu interpolieren.",
+          "category": "technical"
+        }
+      ],
+      "has_comparison_table": true,
+      "comparison_items": [
+        "Own Brand",
+        "LG",
+        "Sony"
+      ],
+      "comparison_properties": {
+        "Refresh Rate": [
+          "144Hz",
+          "120Hz",
+          "120Hz"
+        ],
+        "Motion Handling": [
+          "Excellent",
+          "Good",
+          "Good"
+        ],
+        "Price Range": [
+          "2000-3000€",
+          "1500-2500€",
+          "1500-2500€"
+        ]
+      }
+    },
+    {
+      "gap_id": 2,
+      "topic": "Vergleichsabfragen und Feature-Focus",
+      "urls": [
+        {
+          "url": "https://mediamarkt.de/de/search/qled-vs-oled",
+          "title": "QLED vs OLED Vergleich",
+          "retrieved_in": 142,
+          "citation_count": 52
+        },
+        {
+          "url": "https://www.test.de/Fernseher-OLED-QLED-Mini-LED-4698556-0",
+          "title": "Stiftung Warentest: OLED vs QLED",
+          "retrieved_in": 89,
+          "citation_count": 67
+        },
+        {
+          "url": "https://www.rtings.com/tv/reviews/oled-vs-qled",
+          "title": "RTINGS: OLED vs QLED vollständiger Vergleich",
+          "retrieved_in": 76,
+          "citation_count": 58
+        }
+      ],
+      "search_queries": [
+        "QLED vs OLED Unterschied",
+        "Welcher Fernseher ist besser OLED oder QLED",
+        "QLED oder OLED für Gaming",
+        "OLED Burn-in Problem 2024",
+        "QLED Lebensdauer vs OLED",
+        "QLED vs OLED Preis Leistung"
+      ],
+      "priority": "🟡 HIGH",
+      "impact_score": 69.7,
+      "estimated_visibility_lift": "5-8%",
+      "retrieval_rate": 142,
+      "total_chats": 3821,
+      "citation_rate": 0.58,
+      "own_brand_status": "MENTIONED",
+      "own_brand_visibility": "35%",
+      "target_length": "2600-3000 words",
+      "production_hours": "4-6",
+      "primary_keyword": "QLED vs OLED",
+      "secondary_keywords": [
+        "LED vs OLED Fernseher",
+        "QLED vs OLED Unterschied",
+        "Best TV Technology"
+      ],
+      "competitors": {
+        "LG": "75%",
+        "Sony": "50%",
+        "Panasonic": "25%"
+      },
+      "faq_questions": [
+        {
+          "question": "Was ist der Unterschied zwischen QLED und OLED?",
+          "answer": "QLED nutzt LED-Hintergrundbeleuchtung mit Quantum Dots, OLED hat selbstleuchtende Pixel. OLED hat bessere Schwarzwerte, QLED ist heller.",
+          "category": "technology"
+        },
+        {
+          "question": "Ist OLED besser als QLED?",
+          "answer": "Es kommt auf deine Prioritäten an. OLED hat bessere Bildqualität, aber höheres Burn-in-Risiko und höherer Preis. QLED ist robuster und günstiger.",
+          "category": "comparison"
+        },
+        {
+          "question": "Wie hoch ist das Burn-in-Risiko bei OLED?",
+          "answer": "Bei normalem Gebrauch sehr niedrig. Bei langem statischen Bild (z.B. Logo) über Wochen kann es zu Burn-in kommen. Moderne OLEDs haben Schutzmaßnahmen.",
+          "category": "oled_specific"
+        },
+        {
+          "question": "Ist QLED für Gaming besser?",
+          "answer": "QLED ist robuster für Gaming. OLED hat bessere Response Times, aber Burn-in-Risiko mit HUD-Elementen. Beide können gut sein, es kommt auf dein Setup an.",
+          "category": "gaming"
+        },
+        {
+          "question": "Leuchtkraft: Welche Technologie gewinnt?",
+          "answer": "QLED ist deutlich heller. Das macht QLED in hellen Räumen besser. OLED ist besser in dunklen Räumen mit besserer Schwarzdarstellung.",
+          "category": "brightness"
+        },
+        {
+          "question": "Welche Lebensdauer haben QLED und OLED?",
+          "answer": "QLED hält typisch 80.000-100.000 Stunden. OLED hält etwa 30.000-100.000 Stunden je nach Nutzung. Moderne OLEDs werden immer langlebiger.",
+          "category": "durability"
+        },
+        {
+          "question": "QLED vs OLED bei Spielfilmen?",
+          "answer": "OLED gewinnt bei Spielfilmen. Die bessere Schwarzdarstellung und höhere Kontrastumfang machen das Filmerlebnis besser.",
+          "category": "movies"
+        },
+        {
+          "question": "Kann man Burn-in bei OLED verhindern?",
+          "answer": "Ja, mit guter Gewohnheit. Schalten Sie den TV aus, verwenden Sie Screensaver, vermeiden Sie statische Bilder. Moderne TVs haben auch automatische Schutzfunktionen.",
+          "category": "oled_protection"
+        },
+        {
+          "question": "Welche Technologie ist kostengünstiger?",
+          "answer": "QLED ist günstiger. Vergleichbare Größe und Qualität: QLED 1000-2000€, OLED 2000-4000€.",
+          "category": "price"
+        },
+        {
+          "question": "Ist Mini-LED besser als QLED?",
+          "answer": "Mini-LED ist eine weitere Verbesserung von LED-Backlighting mit besserer Zonensteuerung. Es ist zwischen QLED und OLED positioniert.",
+          "category": "emerging_tech"
+        }
+      ],
+      "has_comparison_table": true,
+      "comparison_items": [
+        "QLED",
+        "OLED",
+        "Mini-LED"
+      ],
+      "comparison_properties": {
+        "Black Level": [
+          "Good",
+          "Perfect",
+          "Excellent"
+        ],
+        "Brightness": [
+          "Very High",
+          "Good",
+          "High"
+        ],
+        "Burn-in Risk": [
+          "None",
+          "Low",
+          "None"
+        ],
+        "Price": [
+          "1000-2000€",
+          "2000-4000€",
+          "1500-3000€"
+        ],
+        "Lifespan": [
+          "100k hours",
+          "50k-100k hours",
+          "100k hours"
+        ]
+      }
+    },
+    {
+      "gap_id": 3,
+      "topic": "Innovation und Zukunfts-Themen",
+      "urls": [
+        {
+          "url": "https://mediamarkt.de/de/search/mini-led-fernseher",
+          "title": "Mini-LED Fernseher bei MediaMarkt",
+          "retrieved_in": 98,
+          "citation_count": 31
+        },
+        {
+          "url": "https://www.lg.com/de/tvs/oled-technology/mini-led",
+          "title": "LG: Mini-LED Technologie erklärt",
+          "retrieved_in": 64,
+          "citation_count": 43
+        },
+        {
+          "url": "https://www.hifimagazin.de/mini-led-technologie-erklaerung",
+          "title": "Mini-LED: Zukunftstechnologie für TVs",
+          "retrieved_in": 72,
+          "citation_count": 39
+        }
+      ],
+      "search_queries": [
+        "Mini-LED Fernseher was ist das",
+        "Mini-LED vs OLED 2026",
+        "Mini-LED Innovation Zukunft",
+        "Beste Mini-LED Fernseher 2026",
+        "Mini-LED Zonen-Dimming erklärt",
+        "Lohnt sich Mini-LED gegenüber OLED"
+      ],
+      "priority": "🟡 MEDIUM-HIGH",
+      "impact_score": 55.4,
+      "estimated_visibility_lift": "4-7%",
+      "retrieval_rate": 98,
+      "total_chats": 2654,
+      "citation_rate": 0.63,
+      "own_brand_status": "ABSENT",
+      "own_brand_visibility": "0%",
+      "target_length": "2800-3200 words",
+      "production_hours": "5-6",
+      "primary_keyword": "Mini-LED Technologie",
+      "secondary_keywords": [
+        "Mini-LED TV",
+        "Zonen-Dimming",
+        "Mini-LED vs OLED",
+        "Die Zukunft der TV-Technologie"
+      ],
+      "competitors": {
+        "LG": "80%",
+        "Sony": "60%",
+        "TCL": "45%"
+      },
+      "faq_questions": [
+        {
+          "question": "Was ist Mini-LED Technologie?",
+          "answer": "Mini-LED nutzt tausende winzige LEDs als Hintergrundbeleuchtung mit lokaler Zonensteuerung. Das bietet QLED-ähnliche Helligkeit mit besserer Schwarzdarstellung.",
+          "category": "technology"
+        },
+        {
+          "question": "Wie viele Mini-LED Zonen gibt es?",
+          "answer": "Typischerweise 500-1000+ Zonen. Je mehr Zonen, desto präziser die Helligkeitssteuerung pro Bildbereich.",
+          "category": "specifications"
+        },
+        {
+          "question": "Ist Mini-LED das neue Standard?",
+          "answer": "Mini-LED wird schnell populär, aber OLED ist weiterhin das Prestige-Segment. Mini-LED füllt eine Lücke zwischen QLED und OLED.",
+          "category": "market_trend"
+        },
+        {
+          "question": "Mini-LED vs OLED: Was ist besser?",
+          "answer": "Für Helligkeit und Haltbarkeit: Mini-LED gewinnt. Für Schwarzwerte und Kontrast: OLED gewinnt. Mini-LED ist der bessere Kompromiss.",
+       

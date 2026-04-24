@@ -1,0 +1,72 @@
+═══════════════════════════════════════════════════════════════════════════════
+LINKEDIN POST — READY TO COPY & PASTE
+26. April 2026
+═══════════════════════════════════════════════════════════════════════════════
+
+[COPY THIS TEXT AND PASTE IT DIRECTLY INTO LINKEDIN]
+
+─────────────────────────────────────────────────────────────────────────────
+
+GEO-Dashboards zeigen dir heute: „Ihr Visibility ist 44 % im Topic X." Fertig.
+
+Das Problem ist nicht, dass die Zahl falsch ist. Das Problem ist, dass sie nicht beantwortet, was du wissen musst.
+
+Auf welcher einzelnen Query verlierst du? Wie gewinnt die Konkurrenz genau dort? Was ist ihre Content-Struktur, ihre Entity-Strategie, ihre FAQ-Logik? Welche Modelle werden in welcher Reihenfolge genannt?
+
+Alle diese Fragen bleiben unantwortbar, solange du nur eine Zahl hast.
+
+Das ist das echte GEO-Problem: Visibility-Metriken sagen dir, dass etwas nicht stimmt. Sie sagen dir nicht, was zu tun ist.
+
+Für die Peec MCP Challenge habe ich deshalb GapBrief gebaut. Ein Python-Tool, das Peec-Gap-Daten nimmt und daraus publish-reife Content-Briefs erzeugt.
+
+Das ist nicht einfach ein weiteres Reporting-Feature. Es ist der Schritt *nach* dem Dashboard.
+
+Das Tool tut drei Dinge:
+
+**Multi-URL Content-Dekonstruktion:** Scraped die Top-3 Konkurrenz-URLs pro Gap. Nicht einfach "sie stehen oben". Sondern: H2-Struktur, FAQ-Muster, Entity-Nennung, Kontext. Der Brief zeigt dir genau, wie die Konkurrenz gewinnt.
+
+**Search Intent aus echten Queries:** 6–10 User-Queries pro Gap. Nicht geraten. Direkt aus Peec extrahiert. Das zeigt dir, was Nutzer wirklich suchen.
+
+**7-Tage-Validation:** Nach Publication wird Peec automatisch erneut abgefragt. Hat die neue Seite den Gap tatsächlich geschlossen? Mit Lift-Messung. Das unterscheidet "Hypothese" von "Ergebnis".
+
+Das Ergebnis: Ein Markdown-Brief, den ein Writer Montag morgens umsetzt. Mit H2-Gerüst, Entity-Checkliste, FAQ-Template, Schema-Empfehlung, Lift-Forecast. Alles strukturiert, nichts gemalt.
+
+Technisch: CLI-first Python. Cron-ready. MIT-lizenziert. 50+ Gaps pro Nacht. Installierbar mit einer Zeile.
+
+Das Tool ist vertikal-agnostisch. Finance, Pharma, FMCG, Tech — spielt keine Rolle. Die Logik ist immer die gleiche: Gap sehen → Content dekonstruieren → Brief schreiben → messen.
+
+→ Repo: github.com/CletisTout/gapbrief
+→ Live Dashboard: blob/main/dashboard.html (Beispieldaten)
+→ README: blob/main/GAP-BRIEF-GENERATOR-README.md
+
+Feedback und Erfahrungen aus anderen Branchen willkommen.
+
+#BuiltWithPeec #GEO #AISearch
+
+─────────────────────────────────────────────────────────────────────────────
+
+[THEN ADD THIS AS FIRST COMMENT & PIN IT]
+
+Repo: https://github.com/CletisTout/gapbrief
+
+Quick Links:
+📊 Interactive Dashboard: https://github.com/CletisTout/gapbrief/blob/main/dashboard.html
+📖 Full Documentation: https://github.com/CletisTout/gapbrief/blob/main/GAP-BRIEF-GENERATOR-README.md
+🚀 Installation: `claude code skill install gapbrief`
+
+Questions? Drop a comment or DM me.
+
+─────────────────────────────────────────────────────────────────────────────
+
+POSTING CHECKLIST:
+
+✅ Copy main post text above
+✅ Paste into LinkedIn "Start a post"
+✅ Add dashboard screenshot (optional but recommended)
+✅ Click "Post"
+✅ Wait 1 minute for post to go live
+✅ Add first comment with Quick Links above
+✅ Pin that comment
+✅ Enable notifications for comments
+
+═══════════════════════════════════════════════════════════════════════════════

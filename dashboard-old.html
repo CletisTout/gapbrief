@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>GapBrief · Example Project · Gap Analysis Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DejaVu+Sans:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg: #1e1e1e;
+  --bg-2: #2a2a2a;
+  --ink: #ffffff;
+  --ink-dim: #b0b0b0;
+  --line: #3a3a3a;
+  --accent: #0066ff;
+  --accent-2: #00ffff;
+  --warn: #ff4e5b;
+  --ok: #6bcf7f;
+  --mono: "DejaVu Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --display: "DejaVu Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+* { box-sizing: border-box; }
+html, body {
+  margin: 0; padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.55;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  background-image:
+    radial-gradient(1200px 600px at 20% -10%, rgba(0,102,255,0.12), transparent 60%),
+    radial-gradient(900px 500px at 90% 110%, rgba(0,255,255,0.08), transparent 60%);
+}
+.container { max-width: 1280px; margin: 0 auto; padding: 48px 40px 96px; }
+
+/* masthead */
+header.masthead {
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 0 14px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 32px;
+  margin-bottom: 40px;
+}
+.brand {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+}
+.brand b { font-weight: 700; }
+.kicker {
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--ink-dim);
+}
+.meta { text-align: right; font-size: 11px; color: var(--ink-dim); }
+
+/* hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 56px;
+  border-bottom: 1px dashed var(--line);
+  padding-bottom: 48px;
+  margin-bottom: 48px;
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  margin: 12px 0 20px;
+  color: var(--ink);
+}
+h1 em { font-style: normal; color: var(--accent); font-weight: 500; }
+.hero .lead { color: var(--ink-dim); max-width: 52ch; font-size: 14px; }
+.hero .lead b { color: var(--ink); font-weight: 500; }
+
+/* numbers strip */
+.numbers {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-bottom: 48px;
+}
+.num { background: var(--bg-2); padding: 28px 24px; }
+.num .label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-dim);
+}
+.num .big {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 1;
+  margin: 14px 0 6px;
+  letter-spacing: -0.02em;
+}
+.num .big.warn { color: var(--warn); }
+.num .big.ok   { color: var(--ok); }
+.num .big.acc  { color: var(--accent); }
+.num .foot { font-size: 11px; color: var(--ink-dim); }
+
+/* section */
+section { margin-bottom: 64px; }
+h2 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+}
+h2 .dot { color: var(--accent); font-style: normal; }
+.section-sub {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ink-dim);
+  margin-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+}
+
+/* competitor bar chart */
+.bars { display: grid; gap: 14px; }
+.bar-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 60px;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--mono);
+}
+.bar-row .name { font-size: 13px; }
+.bar-row .name.own { color: var(--accent); font-weight: 500; }
+.bar-track { height: 22px; background: var(--bg-2); border: 1px solid var(--line); position: relative; }
+.bar-fill { height: 100%; background: var(--ink-dim); }
+.bar-fill.own { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+.bar-row .val { text-align: right; font-size: 12px; color: var(--ink-dim); }
+
+/* gap clusters */
+.clusters { display: grid; gap: 0; border-top: 1px solid var(--line); }
+.cluster {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+  display: grid;
+  grid-template-columns: 80px 1fr 220px;
+  gap: 32px;
+  align-items: start;
+}
+.cluster .rank {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 0.9;
+  color: var(--accent);
+}
+.cluster .rank-sub {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-dim);
+  margin-top: 6px;
+}
+.cluster .prompt {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 10px;
+}
+.cluster .tags {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.tag {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  color: var(--ink-dim);
+  background: var(--bg-2);
+}
+.tag.warn { color: var(--warn); border-color: rgba(255,78,91,0.3); }
+.tag.acc { color: var(--accent); border-color: rgba(255,107,53,0.3); }
+.cluster .urls { font-size: 12px; color: var(--ink-dim); }
+.cluster .urls .url {
+  display: block;
+  padding: 4px 0;
+  border-bottom: 1px dotted var(--line);
+  color: var(--ink);
+  text-decoration: none;
+}
+.cluster .urls .url:hover { color: var(--accent); }
+.cluster .urls .meta-line { font-size: 10px; color: var(--ink-dim); margin-top: 2px; }
+
+.impact-card {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  padding: 16px;
+}
+.impact-card .big {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1;
+  margin: 4px 0 10px;
+  color: var(--accent-2);
+}
+.impact-card .row {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--ink-dim);
+  padding: 3px 0;
+  border-bottom: 1px dotted var(--line);
+}
+.impact-card .row:last-child { border: 0; }
+
+/* CTA */
+.cta {
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  padding: 36px 0;
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+.cta h3 {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 32px;
+  margin: 0 0 6px;
+  letter-spacing: -0.01em;
+}
+.cta h3 em { font-style: normal; color: var(--accent); font-weight: 500; }
+.cta p { color: var(--ink-dim); margin: 0; max-width: 60ch; }
+.cmd {
+  font-family: var(--mono);
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  padding: 16px;
+  font-size: 12px;
+  color: var(--accent-2);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--ink-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; gap: 24px; }
+  .numbers { grid-template-columns: repeat(2, 1fr); }
+  .cluster { grid-template-columns: 1fr; }
+  .cluster .rank { font-size: 28px; }
+  .cta { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="masthead">
+  <div class="brand">Gap<b>Brief</b></div>
+  <div class="kicker">Example Project · Topic X · Example Data · 2026-04-24</div>
+  <div class="meta">Example Project<br/>Generated 2026-04-24</div>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="kicker">Executive summary</div>
+    <h1>Drei kritische Content-Gaps identifiziert — mit 210 Impact-Punkten <em>Lift-Potenzial</em>.</h1>
+    <p class="lead">
+      Dieses Dashboard zeigt drei Content-Gaps als Beispiel: Gap #1 (ABSENT, 0%),
+      Gap #2 (MENTIONED, 35%), und Gap #3 (ABSENT, 0%). Diese <b>Beispieldaten</b>
+      basieren auf <code>gaps-example.json</code> und zeigen, wie GapBrief
+      Gaps priorisiert und für Content-Briefs vorbereitet.
+    </p>
+  </div>
+  <div class="impact-card" style="align-self:center;">
+    <div class="kicker">Total Gap Impact</div>
+    <div class="big">210.4</div>
+    <div class="row"><span>Gaps</span><span>3</span></div>
+    <div class="row"><span>Gap-URLs</span><span>9</span></div>
+    <div class="row"><span>Competitor-Domains</span><span>6</span></div>
+    <div class="row"><span>Modellierter Lift</span><span>+17-27 pp</span></div>
+  </div>
+</section>
+
+<section class="numbers">
+  <div class="num">
+    <div class="label">Top Gap Status</div>
+    <div class="big warn">0%</div>
+    <div class="foot">Own Brand Visibility in Gap #1</div>
+  </div>
+  <div class="num">
+    <div class="label">Gap #2 Status</div>
+    <div class="big acc">35%</div>
+    <div class="foot">Own Brand MENTIONED aber unterrepräsentiert</div>
+  </div>
+  <div class="num">
+    <div class="label">Dominierender Gegner</div>
+    <div class="big">LG</div>
+    <div class="foot">60-80% SoV, in allen Gap-URLs präsent</div>
+  </div>
+  <div class="num">
+    <div class="label">Top Format</div>
+    <div class="big ok">COMPARISON</div>
+    <div class="foot">Vergleichstabellen dominieren die Gaps</div>
+  </div>
+</section>
+
+<section>
+  <h2>Competitor Dominanz<span class="dot"> · </span><em>nach Gap-Gewichtung</em></h2>
+  <div class="section-sub">Durchschnitt aller 3 Gaps, Anteil an Mentions</div>
+  <div class="bars">
+    <div class="bar-row"><div class="name">LG</div><div class="bar-track"><div class="bar-fill" style="width:72%"></div></div><div class="val">72%</div></div>
+    <div class="bar-row"><div class="name">Sony</div><div class="bar-track"><div class="bar-fill" style="width:52%"></div></div><div class="val">52%</div></div>
+    <div class="bar-row"><div class="name own">Samsung</div><div class="bar-track"><div class="bar-fill own" style="width:12%"></div></div><div class="val">12%</div></div>
+    <div class="bar-row"><div class="name">TCL</div><div class="bar-track"><div class="bar-fill" style="width:15%"></div></div><div class="val">15%</div></div>
+    <div class="bar-row"><div class="name">Panasonic</div><div class="bar-track"><div class="bar-fill" style="width:17%"></div></div><div class="val">17%</div></div>
+  </div>
+</section>
+
+<section>
+  <h2>Gap-Cluster nach Impact<span class="dot"> · </span><em>priorisiert</em></h2>
+  <div class="section-sub">Ranked by retrievals × citation_rate × prompt_frequency × competitor_strength</div>
+
+  <div class="clusters">
+
+    <div class="cluster">
+      <div>
+        <div class="rank">01</div>
+        <div class="rank-sub">85.3 impact</div>
+      </div>
+      <div>
+        <div class="prompt">Sportfernseher-Kategorie: „bester Fernseher für Fußball"</div>
+        <div class="tags">
+          <span class="tag warn">ABSENT (0%)</span>
+          <span class="tag">3 URLs</span>
+          <span class="tag acc">CRITICAL</span>
+        </div>
+        <div class="urls">
+          <a class="url" href="https://mediamarkt.de/de/product/sports-tv">
+            mediamarkt.de · Sportfernseher
+            <div class="meta-line">156 retrievals · 0.52 cite-rate · LG 60%, Sony 45%</div>
+          </a>
+          <a class="url" href="https://www.saturn.de/de/category/fernseher-sport">
+            saturn.de · Sportfernseher Kategorie
+            <div class="meta-line">98 retrievals · 0.43 cite-rate · LG 60%, Sony 45%</div>
+          </a>
+          <a class="url" href="https://www.cnet.de/artikel/beste-fernseher-fussball-sport">
+            cnet.de · Die besten Fernseher für Fußball & Sport
+            <div class="meta-line">87 retrievals · 0.59 cite-rate · LG 60%, Sony 45%, Panasonic 30%</div>
+          </a>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="kicker">Lift-Potenzial</div>
+        <div class="big">+8-12 pp</div>
+        <div class="row"><span>Top competitor</span><span>LG (60%)</span></div>
+        <div class="row"><span>Key specs</span><span>120Hz, Motion Handling</span></div>
+        <div class="row"><span>Brief</span><span>ready →</span></div>
+      </div>
+    </div>
+
+    <div class="cluster">
+      <div>
+        <div class="rank">02</div>
+        <div class="rank-sub">69.7 impact</div>
+      </div>
+      <div>
+        <div class="prompt">QLED vs OLED Vergleich: „Unterschied QLED und OLED"</div>
+        <div class="tags">
+          <span class="tag">MENTIONED (35%)</span>
+          <span class="tag">3 URLs</span>
+          <span class="tag acc">HIGH PRIORITY</span>
+        </div>
+        <div class="urls">
+          <a class="url" href="https://mediamarkt.de/de/search/qled-vs-oled">
+            mediamarkt.de · QLED vs OLED Vergleich
+            <div class="meta-line">142 retrievals · 0.58 cite-rate · LG 75%, Sony 50%</div>
+          </a>
+          <a class="url" href="https://www.test.de/Fernseher-OLED-QLED-Mini-LED-4698556-0">
+            test.de · Stiftung Warentest: OLED vs QLED
+            <div class="meta-line">89 retrievals · 0.75 cite-rate · LG 75%, Sony 50%, Panasonic 25%</div>
+          </a>
+          <a class="url" href="https://www.rtings.com/tv/reviews/oled-vs-qled">
+            rtings.com · RTINGS: OLED vs QLED Vergleich
+            <div class="meta-line">76 retrievals · 0.76 cite-rate · LG 75%, Sony 50%</div>
+          </a>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="kicker">Lift-Potenzial</div>
+        <div class="big">+5-8 pp</div>
+        <div class="row"><span>Top competitor</span><span>LG (75%)</span></div>
+        <div class="row"><span>Key angle</span><span>Burn-in vs Helligkeit</span></div>
+        <div class="row"><span>Action</span><span>comparison table</span></div>
+      </div>
+    </div>
+
+    <div class="cluster">
+      <div>
+        <div class="rank">03</div>
+        <div class="rank-sub">55.4 impact</div>
+      </div>
+      <div>
+        <div class="prompt">Mini-LED Innovation: „Mini-LED Technologie Zukunft"</div>
+        <div class="tags">
+          <span class="tag warn">ABSENT (0%)</span>
+          <span class="tag">3 URLs</span>
+          <span class="tag">Medium Priority</span>
+        </div>
+        <div class="urls">
+          <a class="url" href="https://mediamarkt.de/de/search/mini-led-fernseher">
+            mediamarkt.de · Mini-LED Fernseher
+            <div class="meta-line">98 retrievals · 0.63 cite-rate · LG 80%, Sony 60%, TCL 45%</div>
+          </a>
+          <a class="url" href="https://www.lg.com/de/tvs/oled-technology/mini-led">
+            lg.com · LG Mini-LED Technologie
+            <div class="meta-line">64 retrievals · 0.67 cite-rate · LG 80%, Sony 60%</div>
+          </a>
+          <a class="url" href="https://www.hifimagazin.de/mini-led-technologie-erklaerung">
+            hifimagazin.de · Mini-LED: Zukunftstechnologie
+            <div class="meta-line">72 retrievals · 0.62 cite-rate · LG 80%, Sony 60%, TCL 45%</div>
+          </a>
+        </div>
+      </div>
+      <div class="impact-card">
+        <div class="kicker">Lift-Potenzial</div>
+        <div class="big">+4-7 pp</div>
+        <div class="row"><span>Hebel</span><span>Zonen-Dimming explanation</span></div>
+        <div class="row"><span>Required</span><span>Tech deep-dive</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Empfohlene Nächste Schritte<span class="dot"> · </span><em>GapBrief Workflow</em></h2>
+  <div class="section-sub">Priorisiert nach Impact × Execution-Aufwand</div>
+  <ol style="padding-left:24px;color:var(--ink-dim);line-height:1.9;">
+    <li><strong style="color:var(--ink)">Phase 1 (Woche 1):</strong> Content-Brief Gap #1 (Sportfernseher) mit <code>generate_gap_brief.py</code> ausführen. Outputs: Markdown, FAQ-Schema, Competitor Content Analysis.</li>
+    <li><strong style="color:var(--ink)">Phase 2 (Woche 2):</strong> Content-Brief Gap #2 (QLED vs OLED) generieren. Fokus: Comparison Table, Samsung-Positionierung vs LG-Dominanz.</li>
+    <li><strong style="color:var(--ink)">Phase 3 (Woche 3):</strong> Content-Brief Gap #3 (Mini-LED) generieren. Technical deep-dive erforderlich.</li>
+    <li><strong style="color:var(--ink)">Validation (Woche 4):</strong> <code>validate_lift.py</code> automatisch gegen alle 3 Gaps laufen lassen. 7-Tage Retrieval-Check.</li>
+    <li><strong style="color:var(--ink)">Expansion:</strong> Wiederhole Prozess für weitere Samsung-Topics. GapBrief ist batch-fähig für 50+ Gaps pro Projekt.</li>
+  </ol>
+</section>
+
+<div class="cta">
+  <div>
+    <h3>Run <em>GapBrief</em> on your project</h3>
+    <p>Every Peec MCP user can run this pipeline. MIT-licensed. Installable as a Claude Code skill in one command. Works with any brand, any vertical.</p>
+  </div>
+  <div class="cmd">$ claude code skill install gapbrief
+$ python generate_gap_brief.py \
+  --input gaps-example.json \
+  --auto-generate</div>
+</div>
+
+<footer>
+  <div>#BuiltWithPeec · Example Data · 2026</div>
+  <div>github.com/CletisTout/gapbrief</div>
+</footer>
+
+</div>
+</body>
+</html>
+                                                                                      
